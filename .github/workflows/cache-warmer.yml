@@ -1,4 +1,4 @@
-name: Run Cache Warmer Every 2 Days
+name: Run Cache Warmer Every Days 2 Times
 
 on:
   schedule:
