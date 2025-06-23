@@ -2,7 +2,8 @@ name: Run Cache Warmer Every 2 Days
 
 on:
   schedule:
-    - cron: "0 0 */2 * *" 
+    - cron: "0 0 * * *"  
+    - cron: "0 12 * * *"  
   workflow_dispatch:
 
 jobs:
@@ -26,9 +27,3 @@ jobs:
         env:
           BRD_PROXY_NU: ${{ secrets.BRD_PROXY_NU }}
           BRD_PROXY_SE: ${{ secrets.BRD_PROXY_SE }}
-          BRD_PROXY_NO: ${{ secrets.BRD_PROXY_NO }}
-          BRD_PROXY_DK: ${{ secrets.BRD_PROXY_DK }}
-          BRD_PROXY_DE: ${{ secrets.BRD_PROXY_DE }}
-          BRD_PROXY_ES: ${{ secrets.BRD_PROXY_ES }}
-          BRD_PROXY_NL: ${{ secrets.BRD_PROXY_NL }}
-          BRD_PROXY_FR: ${{ secrets.BRD_PROXY_FR }}
