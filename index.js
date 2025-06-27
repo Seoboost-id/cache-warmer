@@ -68,7 +68,7 @@ async function retryableGet(url, config, retries = 3) {
   throw lastError;
 }
 
-async function warmUrls(urls, country, batchSize = 1, delay = 10000) {
+async function warmUrls(urls, country, batchSize = 3, delay = 7000) {
   const proxy = PROXIES[country];
   const agent = new HttpsProxyAgent(proxy);
 
