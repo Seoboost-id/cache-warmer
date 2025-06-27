@@ -7,7 +7,6 @@ dotenv.config();
 
 const DOMAINS_MAP = {
   en: "https://www.addingvalue.nu",
-  se: "https://www.addingvalue.se",
 };
 
 const PROXIES = {
@@ -17,7 +16,6 @@ const PROXIES = {
 
 const USER_AGENTS = {
   en: "AddingValue-NU-CacheWarmer/1.0",
-  se: "AddingValue-SE-CacheWarmer/1.0",
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

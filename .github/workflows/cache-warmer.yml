@@ -1,4 +1,4 @@
-name: Run Cache Warmer Every Days 2 Times
+name: Run Cache Warmer Every Day 2 Times
 
 on:
   schedule:
@@ -26,4 +26,3 @@ jobs:
         run: npm run start
         env:
           BRD_PROXY_NU: ${{ secrets.BRD_PROXY_NU }}
-          BRD_PROXY_SE: ${{ secrets.BRD_PROXY_SE }}
