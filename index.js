@@ -272,7 +272,7 @@ async function warmUrls(urls, country, batchSize = 3, delay = 7000) {
           console.log(`[${country}] [${res.status}] cf=${cfCache || "N/A"} vercel=${vercelCache || "N/A"} - ${url}`);
           console.log(`[${country}] ➤ Edge: ${res.headers["cf-ray"] || "unknown"}`);
 
-          if (["REVALIDATED", "MISS", "PRERENDERED"].includes(vercelCache)) {
+          if (["REVALIDATED", "MISS", "PRERENDER"].includes(vercelCache)) {
             await purgeCloudflareCache(url);
           }
 
