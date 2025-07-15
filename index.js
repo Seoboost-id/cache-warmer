@@ -143,10 +143,12 @@ const DOMAINS_MAP = {
 
 const PROXIES = {
   en: process.env.BRD_PROXY_NU,
+  fl: process.env.BRD_PROXY_FL,
 };
 
 const USER_AGENTS = {
   en: "AddingValue-NU-CacheWarmer/1.0",
+  fl: "AddingValue-FL-CacheWarmer/1.0",
 };
 
 const CLOUDFLARE_ZONE_ID = process.env.CLOUDFLARE_ZONE_ID;
