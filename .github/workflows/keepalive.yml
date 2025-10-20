@@ -1,0 +1,36 @@
+name: Keep Repo Active
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"   # Jalankan setiap minggu (Minggu 00:00 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write   # agar bisa push commit
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clone repo dengan full history (perlu untuk git log)
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if repo inactive >45 days
+        id: check
+        run: |
+          if git log --since="45 days ago" --pretty=oneline | head -n 1; then
+            echo "stale=false" >> $GITHUB_OUTPUT
+          else
+            echo "stale=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Make empty commit to keep repo active
+        if: steps.check.outputs.stale == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: keep repo active"
+          git push
