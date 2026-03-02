@@ -21,10 +21,12 @@ jobs:
       - name: Check if repo inactive >45 days
         id: check
         run: |
-          if git log --since="45 days ago" --pretty=oneline | head -n 1; then
-            echo "stale=false" >> $GITHUB_OUTPUT
+          COUNT=$(git log --since="45 days ago" --oneline | wc -l)
+          echo "Recent commits: $COUNT"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "stale=true" >> "$GITHUB_OUTPUT"
           else
-            echo "stale=true" >> $GITHUB_OUTPUT
+            echo "stale=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Make empty commit to keep repo active
