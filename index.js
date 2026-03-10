@@ -13,19 +13,16 @@ const CLOUDFLARE_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 /* ================= DOMAIN / PROXY / UA ================= */
 const DOMAINS_MAP = {
   nu: "https://www.addingvalue.nu",
-  fl: "https://www.addingvalue.nu",
 };
 
 // === Proxy ===
 const PROXIES = {
   nu: process.env.BRD_PROXY_NU,
-  fl: process.env.BRD_PROXY_FL,
 };
 
 // === User Agents ===
 const USER_AGENTS = {
   nu: "AddingValue-NU-CacheWarmer/1.0",
-  fl: "AddingValue-FL-CacheWarmer/1.0",
 };
 
 /* ================= UTIL ================= */
